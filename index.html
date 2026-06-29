@@ -48,9 +48,10 @@
             <p class="hero-eyebrow">Larkin Enterprises — Papua New Guinea</p>
             <h1 class="hero-title">We Believe...</h1>
             <div class="hero-quotes">
-                <p>"…in offering the best products… in using business to inspire and implement solutions."</p>
-                <p>"…that we are capable of change."</p>
-                <p>"…and strive in giving real opportunity to Papua New Guineans with genuine authority and responsibility."</p>
+                <p>"...in treating our customers with respect and faith."</p>
+                <p>"We grow through creativity, invention and innovation."</p>
+                <p>"We integrate honesty, integrity and business ethics into all aspects of our
+business functioning."</p>
             </div>
             <a href="#about" class="btn-primary-red" id="discover-btn">Discover More</a>
         </div>
@@ -65,8 +66,9 @@
 
     <!-- ── our story ── -->
     <section id="about" class="split-section">
-        <div class="split-image">
-            <img src="/images/Larkin 2020.jpg" alt="Our team">
+        <div class="split-image about-image-wrap">
+            <div class="about-img-bg"></div>
+            <img src="/images/Larkin 2020.jpg" alt="Our team" class="about-img-front">
             <div class="image-tint-right"></div>
         </div>
         <div class="split-content fade-in">
@@ -91,7 +93,7 @@
             <div class="stats-row">
                 <div class="stat-item">
                     <div class="stat-value">2013</div>
-                    <div class="stat-label">Founded</div>
+                    <div class="stat-label">Started</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">PNG</div>
@@ -107,24 +109,73 @@
 
     <!-- service -->
     <section id="services" class="split-section">
-        <div class="split-content bg-light fade-in">
-            <p class="section-eyebrow">What We Do</p>
-            <h2 class="section-heading">Our Services</h2>
-            <div class="section-divider"></div>
-            <p class="section-body">
-                We are steadily creating our mark as an organization of well-experienced suppliers and importers of state-of-the-art products with unparalleled dedication to quality.
-            </p>
-            <div class="services-grid">
-                <div class="service-item"><span class="service-dot"></span><span class="service-label">Building Materials</span></div>
-                <div class="service-item"><span class="service-dot"></span><span class="service-label">Air Conditioning Systems</span></div>
-                <div class="service-item"><span class="service-dot"></span><span class="service-label">IT Equipment</span></div>
-                <div class="service-item"><span class="service-dot"></span><span class="service-label">Alarm &amp; Tracking Devices</span></div>
-                <div class="service-item"><span class="service-dot"></span><span class="service-label">Security Solutions</span></div>
-                <div class="service-item"><span class="service-dot"></span><span class="service-label">Noise Reduction Products</span></div>
+       <div class="split-content bg-light fade-in services-tabbed">
+            <!-- tab buttons -->
+            <div class="stab-bar">
+                <button class="stab-btn active" data-tab="services">Our Services</button>
+                <button class="stab-btn" data-tab="ventures">Joint Ventures</button>
+                <button class="stab-btn" data-tab="company">Company Info</button>
             </div>
-            <p class="section-body">
-                Our commitment to excellence in customer service drives us to be the top supplier in Papua New Guinea, while building a solid foundation that supports its people and economy.
-            </p>
+            <!-- tab: Our Services -->
+            <div class="stab-panel active" id="stab-services">
+                <p class="section-eyebrow">What We Do</p>
+                <h2 class="section-heading">Our Services</h2>
+                <div class="section-divider"></div>
+                <p class="section-body">
+                    We are steadily creating our mark as an organization of well-experienced suppliers and importers of state-of-the-art products with unparalleled dedication to quality.
+                </p>
+                <div class="services-grid">
+                    <div class="service-item"><span class="service-dot"></span><span class="service-label">Building Materials</span></div>
+                    <div class="service-item"><span class="service-dot"></span><span class="service-label">Air Conditioning Systems</span></div>
+                    <div class="service-item"><span class="service-dot"></span><span class="service-label">IT Equipment</span></div>
+                    <div class="service-item"><span class="service-dot"></span><span class="service-label">Alarm &amp; Tracking Devices</span></div>
+                    <div class="service-item"><span class="service-dot"></span><span class="service-label">Security Solutions</span></div>
+                    <div class="service-item"><span class="service-dot"></span><span class="service-label">Noise Reduction Products</span></div>
+                </div>
+                <p class="section-body">
+                    Our commitment to excellence in customer service drives us to be the top supplier in Papua New Guinea, while building a solid foundation that supports its people and economy.
+                </p>
+            </div>
+            <!-- tab: Joint Ventures -->
+            <div class="stab-panel" id="stab-ventures">
+                <p class="section-eyebrow">Partnerships</p>
+                <h2 class="section-heading">Joint Ventures</h2>
+                <div class="section-divider"></div>
+                <p class="section-body">
+                    As an emerging supplier-importer company in Papua New Guinea, the company has established partnership with both local contractors and suppliers abroad for a faster and better technical support in meeting our client's project development needs.
+                </p>
+                <p class="section-body">
+                    Currently, Larkin Enterprises Limited has secured Sole Distributorship deals from Carpet Manufacturers in China, Interior finishing products such as Armstrong Ceiling Systems from Australia, Security Systems such as Electric Fence, CCTV cameras, Magnetic Door Locks and Biometrics from the Philippines and Singapore.
+                </p>
+            </div>
+            <!-- tab: Company Information -->
+            <div class="stab-panel" id="stab-company">
+                <p class="section-eyebrow">About Us</p>
+                <h2 class="section-heading">Company Information</h2>
+                <div class="section-divider"></div>
+                <p class="section-body" style="font-weight:600; color:#1a1a1a; margin-bottom:8px;">Registered Office</p>
+                <p class="section-body">
+                    Portion 3205C Fungi St. Taurama Road<br>
+                    P.O. Box 514 Waterfront<br>
+                    Port Moresby<br>
+                    National Capital District
+                </p>
+                <p class="section-body" style="font-weight:600; color:#1a1a1a; margin-bottom:8px;">Business Registration</p>
+                <ol class="company-list">
+                    <li>
+                        <span>Registration with IPA</span>
+                        <span class="company-sub">Certificate of Incorporation: 1-113711</span>
+                    </li>
+                    <li>
+                        <span>Registration with IRC</span>
+                        <span class="company-sub">Tax File Number: 500791364</span>
+                    </li>
+                    <li>
+                        <span>IRC Certificate of Compliance</span>
+                        <span class="company-sub">COC Number: upon request</span>
+                    </li>
+                </ol>
+            </div>
         </div>
         <div class="slideshow-wrap">
             <div class="slideshow">
@@ -191,6 +242,15 @@
             </form>
         </div>
     </section>
+
+     <!-- ── liwanag ng square ── -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#10005;</button>
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        <div class="lightbox-inner">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
 
     <!-- ── bible ── -->
     <footer class="psalm-footer">
@@ -329,6 +389,19 @@
 
         $(window).on('scroll', checkScroll);
 
+
+        // ── service tabs ──
+        document.querySelectorAll('.stab-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var tab = btn.getAttribute('data-tab');
+                document.querySelectorAll('.stab-btn').forEach(function (b) { b.classList.remove('active'); });
+                document.querySelectorAll('.stab-panel').forEach(function (p) { p.classList.remove('active'); });
+                btn.classList.add('active');
+                document.getElementById('stab-' + tab).classList.add('active');
+            });
+        });
+
+
         // ── Coverflow gallery ──
         (function () {
             var slides = document.querySelectorAll('.cf-slide');
@@ -362,6 +435,7 @@
                     if (offset > total / 2)  offset -= total;
                     if (offset < -total / 2) offset += total;
                     slide.classList.add(classFor(offset));
+                    slide.style.cursor = (idx === current) ? 'zoom-in' : 'pointer';
                 });
                 dotsEl.querySelectorAll('.cf-dot').forEach(function (dot, idx) {
                     dot.classList.toggle('active', idx === current);
@@ -387,6 +461,51 @@
                     if (idx !== current) goTo(idx);
                 });
             });
+
+            // liwanag sa dilim
+            var lightbox   = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+
+            function openLightbox(src, alt) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || '';
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-backdrop').addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeLightbox();
+            });
+
+            // doublepress
+            slides.forEach(function (slide, idx) {
+                slide.addEventListener('click', function () {
+                    if (idx === current) {
+                        var img = slide.querySelector('img');
+                        openLightbox(img.src, img.alt);
+                    } else {
+                        goTo(idx);
+                    }
+                });
+            });
+
+            // show zoom cursor on active slide
+            function updateCursor() {
+                slides.forEach(function (slide, idx) {
+                    slide.style.cursor = (idx === current) ? 'zoom-in' : 'pointer';
+                });
+            }
+
+
+            
+
 
             // auto-advance every 4 s, pause on hover
             var cfAuto = setInterval(function () { goTo(current + 1); }, 4000);
