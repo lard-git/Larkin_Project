@@ -313,7 +313,7 @@ p {
 
 .split-section {
     display: flex;
-    
+    align-items: stretch;
 }
 
 #about{
@@ -375,8 +375,6 @@ p {
 }
 
 .split-content {
-    flex: 1;
-    min-height: 560px;
     padding: 72px 64px;
     display: flex;
     flex-direction: column;
@@ -512,11 +510,14 @@ p {
 }
 .stab-panel.active {
     display: block;
+    min-height: 530px;
 }
+
 @keyframes stabFade {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
 .company-list {
     list-style: none;
     padding: 0;
@@ -753,11 +754,14 @@ textarea.form-control-modern {
 }
 /* slideshow */
 .slideshow-wrap {
-    flex: 1;
-    max-height: 560px;
     position: relative;
     overflow: hidden;
     background: #111;
+}
+
+.split-content,
+.slideshow-wrap {
+    flex: 1;
 }
 
 .slideshow {
@@ -773,17 +777,21 @@ textarea.form-control-modern {
     transition: opacity 0.6s ease;
 }
 
+.slideshow,
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
 .slide.active {
     opacity: 1;
-    position: relative;
 }
 
 .slide img {
-    width: 120%;
-    height: 120%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    min-height: 560px;
 }
 
 .slide-btn {
