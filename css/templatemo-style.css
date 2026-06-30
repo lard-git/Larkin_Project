@@ -60,7 +60,7 @@ p {
     height: 72px;
     display: flex;
     align-items: center;
-    z-index: 201;
+    
 }
 
 
@@ -82,6 +82,7 @@ p {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     transition: border-color 0.3s, transform 0.3s;
+    z-index: -2;
     
     
 }
@@ -95,7 +96,7 @@ p {
     object-fit: contain;
     display: block;
     top:4px;
-    z-index: 0;
+    z-index: -1;
 }
 
 .main-menu {
@@ -468,6 +469,11 @@ p {
     margin-bottom: 32px;
     border-bottom: 2px solid #e0e0e0;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    
 }
 .stab-btn {
     background: none;
@@ -484,7 +490,14 @@ p {
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
     white-space: nowrap;
+    font-size: 11px;
+    flex-shrink: 0;
 }
+
+.services-tabbed {
+    justify-content: flex-start;
+}
+
 .stab-btn:hover {
     color: #cc1414;
 }
@@ -878,6 +891,7 @@ textarea.form-control-modern {
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 24px 60px rgba(0,0,0,0.7);
+    
 }
 
 .cf-slide img {
@@ -886,6 +900,7 @@ textarea.form-control-modern {
     object-fit: cover;
     display: block;
     transition: filter 0.55s ease;
+    
 }
 
 /* active — front and center */
