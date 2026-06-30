@@ -315,9 +315,15 @@ p {
     display: flex;
     align-items: stretch;
 }
-
+.italic{
+    font-style: italic;
+    font-weight: 500;
+    color: #4a4a4a;
+    letter-spacing: 1px;
+}
 #about{
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 .split-image {
@@ -792,62 +798,6 @@ textarea.form-control-modern {
     height: 100%;
     object-fit: cover;
     display: block;
-}
-
-.slide-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(0,0,0,0.45);
-    border: none;
-    color: #fff;
-    font-size: 2.6rem;
-    line-height: 1;
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.2s, transform 0.2s;
-    padding: 0;
-    padding-bottom: 3px;
-}
-
-.slide-btn:hover {
-    background: #cc1414;
-    transform: translateY(-50%) scale(1.08);
-}
-
-.slide-prev { left: 16px; }
-.slide-next { right: 16px; }
-
-.slide-dots {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-.slide-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.45);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.slide-dot.active {
-    background: #cc1414;
-    transform: scale(1.25);
 }
 
 /* ── gallery coverflow ── */
