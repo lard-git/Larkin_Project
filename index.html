@@ -186,8 +186,8 @@ business functioning."</p>
         </div>
         <div class="slideshow-wrap">
             <div class="slideshow">
-                <div class="slide active"><img src="/images/Office 1.jpg" ></div>
-                <div class="slide"><img src="/images/LandscapeShot.jpg" ></div>
+                <div class="slide active"><img src="/images/Office 1.jpg" alt="Office 1"></div>
+                <div class="slide"><img src="/images/LandscapeShot.jpg" alt="Landscape"></div>
             </div>
             
         </div>
@@ -237,6 +237,7 @@ business functioning."</p>
                 We'll be in touch with you very soon. Thank you for reaching out.
             </div>
 
+<<<<<<< HEAD
             <div id="form-error" style="display: none; color: #cc1414;">
             <strong>Oops!</strong>
             <p id="error-message">Something went wrong. Please try again.</p>
@@ -244,6 +245,13 @@ business functioning."</p>
 
             <form id="contact-form" method="POST" action="css/contact_handler.php" novalidate>
                 <input type="hidden" name="csrf_token" id="csrf_token" value="">
+=======
+            <div id="form-error" style="display:none; background:#fdf0ed; border:1px solid #e6b3b3; border-left:4px solid #cc1414; border-radius:4px; padding:16px 20px; color:#7a2e2e; margin-bottom:16px;">
+                <strong>Something went wrong.</strong> Please check your network and try again, or call us directly.
+            </div>
+
+            <form id="contact-form" novalidate>
+>>>>>>> 691477a9dcefd9c529d00fffb8eee0d71fc68ed5
                 <div class="form-row">
                     <input name="name" type="text" class="form-control-modern" placeholder="Your Name" required>
                     <input name="email" type="email" class="form-control-modern" placeholder="Your Email" required>
@@ -284,7 +292,7 @@ business functioning."</p>
         <p>© 2017 Larkin Enterprises Limited · Papua New Guinea</p>
     </div>
 
-    <!-- Scripts — same stack as original -->
+    <!-- same stack as original -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.singlePageNav.min.js"></script>
@@ -355,30 +363,50 @@ business functioning."</p>
             $('.slideshow-wrap').on('mouseenter', function () { clearInterval(autoSlide); })
                                 .on('mouseleave', function () { autoSlide = setInterval(function () { goTo(current + 1); }, 4000); });
 
-            // Contact form — POST to API, then show success message
+            // ── Contact form with error handling ──
             $('#contact-form').on('submit', function (e) {
                 e.preventDefault();
+
                 var form = $(this);
                 var data = {
-                    name: form.find('[name="name"]').val(),
-                    email: form.find('[name="email"]').val(),
-                    subject: form.find('[name="subject"]').val(),
-                    message: form.find('[name="message"]').val()
+                    name: form.find('[name="name"]').val().trim(),
+                    email: form.find('[name="email"]').val().trim(),
+                    subject: form.find('[name="subject"]').val().trim(),
+                    message: form.find('[name="message"]').val().trim()
                 };
+
+                // simple client validation
+                if (!data.name || !data.email || !data.subject || !data.message) {
+                    $('#form-error').text('Please fill in all fields.').show();
+                    return;
+                }
+                if (!data.email.includes('@') || !data.email.includes('.')) {
+                    $('#form-error').text('Please enter a valid email address.').show();
+                    return;
+                }
+
+                // hide old error, show sending state (optional)
+                $('#form-error').hide();
+
                 $.ajax({
                     url: '/api/contact',
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(data),
-                    success: function () {
+                    timeout: 8000, // 8 second timeout
+                    success: function (response) {
+                        // success: show success message
                         form.slideUp(300, function () {
                             $('#form-success').addClass('show');
                         });
                     },
-                    error: function () {
+                    error: function (xhr, status, error) {
+                        // network error, timeout, or server error
                         form.slideUp(300, function () {
-                            $('#form-success').addClass('show');
+                            $('#form-success').removeClass('show');
+                            $('#form-error').text('Could not send message. Please try again later or call us directly. (' + status + ')').show();
                         });
+                        console.warn('Contact form error:', status, error);
                     }
                 });
             });
