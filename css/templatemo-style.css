@@ -675,6 +675,7 @@ textarea.form-control-modern {
     margin-bottom: 20px;
 }
 
+/* Form section */
 #form-success {
     display: none;
     background: #f0faf4;
@@ -692,6 +693,11 @@ textarea.form-control-modern {
 #form-success strong {
     display: block;
     margin-bottom: 4px;
+}
+
+#form-error {
+    display: none;
+    color: #cc1414;
 }
 
 /* bible footer */

@@ -220,11 +220,10 @@ business functioning."</p>
             <img src="/images/4.jpg" alt="Contact us">
             <div class="contact-image-overlay">
                 <p class="contact-detail-label">Phone</p>
-                <p class="contact-detail-value">(+675) 76112123</p>
-                
-                
+                <p class="contact-detail-value">(+675) 76112123</p>         
             </div>
         </div>
+
         <div class="contact-form-wrap fade-in">
             <p class="section-eyebrow">Get In Touch</p>
             <h2 class="section-heading">Give Us A Holler!</h2>
@@ -238,7 +237,13 @@ business functioning."</p>
                 We'll be in touch with you very soon. Thank you for reaching out.
             </div>
 
-            <form id="contact-form" novalidate>
+            <div id="form-error" style="display: none; color: #cc1414;">
+            <strong>Oops!</strong>
+            <p id="error-message">Something went wrong. Please try again.</p>
+            </div>
+
+            <form id="contact-form" method="POST" action="css/contact_handler.php" novalidate>
+                <input type="hidden" name="csrf_token" id="csrf_token" value="">
                 <div class="form-row">
                     <input name="name" type="text" class="form-control-modern" placeholder="Your Name" required>
                     <input name="email" type="email" class="form-control-modern" placeholder="Your Email" required>
@@ -283,6 +288,7 @@ business functioning."</p>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.singlePageNav.min.js"></script>
+    <script src="js/contact.js"></script>
 
     <script>
         // Scroll: nav background
@@ -509,10 +515,6 @@ business functioning."</p>
                     slide.style.cursor = (idx === current) ? 'zoom-in' : 'pointer';
                 });
             }
-
-
-            
-
 
             // auto-advance every 4 s, pause on hover
             var cfAuto = setInterval(function () { goTo(current + 1); }, 4000);
