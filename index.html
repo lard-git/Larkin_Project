@@ -33,6 +33,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Projects</a></li>
                     <li><a class="external" href="https://www.facebook.com/LarkinPNG" target="_blank" rel="noopener">External</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -193,26 +194,60 @@ business functioning."</p>
         </div>
     </section>
 
-    <!-- ── gallery ── -->
+    <!-- ── gallery/projects ── -->
     <section id="gallery" class="gallery-section">
-        <div class="gallery-header">
-            <!-- <p class="section-eyebrow">What We Supply</p> -->
-            <h2 class="section-heading" style="color:#fff;">Our Gallery</h2>
-            <div class="section-divider" style="margin: 8px auto 0;"></div>
-        </div>
-        <div class="coverflow-wrap">
-            <button class="cf-arrow cf-prev" id="cf-prev" aria-label="Previous">&#8249;</button>
-            <div class="coverflow-track" id="coverflow-track">
-                <div class="cf-slide" data-index="0"><img src="/images/Reception.jpg" alt="Reception area"></div>
-                <div class="cf-slide" data-index="1"><img src="/images/Office 2.jpg" alt="Office shot"></div>
-                <div class="cf-slide" data-index="2"><img src="/images/Office 3.jpg" alt="Office shot 2"></div>
-                <div class="cf-slide" data-index="3"><img src="/images/Works 1.jpg" alt="PNG Coastline"></div>
-                <div class="cf-slide" data-index="4"><img src="/images/Works 2.jpg" alt="Contact"></div>
+        <h1 class="section-heading">Our Projects</h1>
+
+        <!-- Project Grid -->
+        <div id="projectGrid" class="project-grid">
+            <div class="project-card" onclick="openProject('airport')">
+                <img src="/images/Lae International Airport.jpg" alt="International airport">
+                <h3>Airport project</h3>
+                <p>Lae International Airport</p>
             </div>
-            <button class="cf-arrow cf-next" id="cf-next" aria-label="Next">&#8250;</button>
+
+            <div class="project-card" onclick="openProject('airportControl')">
+                <img src="/images/Kagamuga Airport Control Tower.jpg" alt="Airport Control Tower">
+                <h3>Airport Control Tower project</h3>
+                <p>Kagamuga Airport Control Tower</p>
+            </div>
+
+            <div class="project-card" onclick="openProject('apartment')">
+                <img src="/images/S&J Apartments 1.jpg" alt="Apartments">
+                <h3>Apartments</h3>
+                <p>S&J Apartments</p>
+            </div>
         </div>
-        <div class="cf-dots" id="cf-dots"></div>
+
+        <!-- Project Detail View -->
+        <div id="projectView">
+            <h2 id="projectTitle"></h2>
+
+            <div class="project-overview">
+                <img id="projectHero" src="" alt="Project Hero Image">
+                <div class="project-info">
+                    <h3>Project Information</h3>
+                    <p id="projectDescription"></p>
+                </div>
+            </div>
+
+            <h3>Project Gallery</h3>
+            <div id="galleryProject" class="galleryProject"></div>
+            
+            <button id="buttonProject" onclick="backToProjects()">
+                ← Back to Projects
+            </button>
+        </div>
     </section>
+
+<!-- ✅ LIGHTBOX / IMAGE VIEWER -->
+<div id="imageModal" class="image-modal">
+    <span class="modal-close" onclick="closeImageViewer()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="modalCaption"></div>
+    <button class="modal-prev" onclick="prevImage()">&#10094;</button>
+    <button class="modal-next" onclick="nextImage()">&#10095;</button>
+</div>
 
     <!-- ── email ── -->
     <section id="contact" class="split-section">
@@ -237,7 +272,6 @@ business functioning."</p>
                 We'll be in touch with you very soon. Thank you for reaching out.
             </div>
 
-<<<<<<< HEAD
             <div id="form-error" style="display: none; color: #cc1414;">
             <strong>Oops!</strong>
             <p id="error-message">Something went wrong. Please try again.</p>
@@ -245,13 +279,6 @@ business functioning."</p>
 
             <form id="contact-form" method="POST" action="css/contact_handler.php" novalidate>
                 <input type="hidden" name="csrf_token" id="csrf_token" value="">
-=======
-            <div id="form-error" style="display:none; background:#fdf0ed; border:1px solid #e6b3b3; border-left:4px solid #cc1414; border-radius:4px; padding:16px 20px; color:#7a2e2e; margin-bottom:16px;">
-                <strong>Something went wrong.</strong> Please check your network and try again, or call us directly.
-            </div>
-
-            <form id="contact-form" novalidate>
->>>>>>> 691477a9dcefd9c529d00fffb8eee0d71fc68ed5
                 <div class="form-row">
                     <input name="name" type="text" class="form-control-modern" placeholder="Your Name" required>
                     <input name="email" type="email" class="form-control-modern" placeholder="Your Email" required>
@@ -297,6 +324,7 @@ business functioning."</p>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.singlePageNav.min.js"></script>
     <script src="js/contact.js"></script>
+    <script src="js/scriptproject.js"></script>
 
     <script>
         // Scroll: nav background
