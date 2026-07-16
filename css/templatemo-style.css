@@ -700,11 +700,73 @@ textarea.form-control-modern {
     color: #cc1414;
 }
 
+/* partners */
+.partners-section {
+    background: #fff;
+    padding: 60px 32px 56px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    border-top: 3px solid #272626ea;
+    border-bottom: 3px solid #272626ea;
+}
+.partners-track {
+   
+    position: relative;
+}
+/* fade-out edges */
+.partners-track::before,
+.partners-track::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.partners-logos {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    width: max-content;
+    animation: partnersScroll 22s linear infinite;
+}
+.partners-logos:hover {
+    animation-play-state: paused;
+}
+@keyframes partnersScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-30%); }
+}
+.partner-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.partner-logo img {
+    height: 64px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.85;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.partner-logo img:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+
+
+
 /* bible footer */
 
 .psalm-footer {
     position: relative;
-    min-height: 400px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
